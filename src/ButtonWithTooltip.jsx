@@ -24,7 +24,7 @@ function ButtonWithTooltip({ tooltipContent, children }) {
         onPointerLeave={() => {
           setTargetPosition(null);
         }}
-        className=" btn btn-sm mb-20  btn-warning  rounded-lg flex flex-col fap-y-10 "
+        className=" btn btn-sm mb-20  btn-warning  rounded-lg flex flex-col gap-y-10 "
       >
         {children}
       </button>
