@@ -1,14 +1,19 @@
-import { useMemo, useState } from "react";
+import { Suspense, lazy, useMemo, useState } from "react";
 import ButtonWithTooltip from "./ButtonWithTooltip";
 import Table from "./Table";
+import ScrollLeft from "./ScrollLeft.jsx";
+import Debouncing from "./Debouncing.jsx";
+
+const Text = lazy(() => import("./Text.jsx"));
 
 function App() {
-  const [counter1, setCounter1] = useState(0);
-  const [counter2, setCounter2] = useState(0);
-  const myObj = useMemo(() => ({ num: 10 }), []);
+  // const [counter1, setCounter1] = useState(0);
+  // const [counter2, setCounter2] = useState(0);
+  // const myObj = useMemo(() => ({ num: 10 }), []);
+  // const [showText, setShow] = useState(false);
   return (
     <>
-      <ButtonWithTooltip
+      {/* <ButtonWithTooltip
         tooltipContent={
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
@@ -17,8 +22,8 @@ function App() {
         }
       >
         Hover over me(tooltip above)
-      </ButtonWithTooltip>
-      <ButtonWithTooltip
+      </ButtonWithTooltip> */}
+      {/* <ButtonWithTooltip
         tooltipContent={
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
@@ -26,9 +31,9 @@ function App() {
         }
       >
         Hover over me(tooltip below)
-      </ButtonWithTooltip>
+      </ButtonWithTooltip> */}
       {/* counter */}
-      Counter 1: {counter1} {""}{" "}
+      {/* Counter 1: {counter1} {""}{" "}
       <button
         className="btn btn-info btn-sm"
         onClick={() => setCounter1((prev) => prev + 1)}
@@ -43,7 +48,28 @@ function App() {
       >
         increase
       </button>
-      <Table num={counter1} obj={myObj} />
+      <Table num={counter1} obj={myObj} /> */}
+      {/* <button
+        onClick={(e) => {
+          setShow((prev) => !prev);
+          console.log(e.target.scrollHeight);
+        }}
+        className="btn-md text-center flex items-center justify-center btn-outline mb-8 rounded-lg btn-success mt-12"
+      >
+        Toggle
+      </button>
+      {showText && (
+        <Suspense fallback={<div>loading...</div>}>
+          {" "}
+          <Text />
+        </Suspense>
+      )} */}
+
+      {/* <ScrollLeft /> */}
+
+      {/* debouncing using lodash */}
+
+      <Debouncing />
     </>
   );
 }
